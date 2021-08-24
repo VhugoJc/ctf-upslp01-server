@@ -6,6 +6,7 @@ const app = express();
 const api = express.Router();
 const cors = require('cors');
 const port= process.env.PORT || 4000;
+const flag = process.env.POLIMEMESFLAG;
 
 app.use(cors());
 //Config:
@@ -20,7 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
+console.log(flag);
  const addNewStudent = (req, res)=>{//funcion de validacion de credenciales
     let {id,password} = req.body;
     let response ={
@@ -35,7 +36,7 @@ app.use((req, res, next) => {
     password = parseInt(password);
 
     if(`${password}`===id){
-      response.id = process.env.POLIMEMESFLAG;
+      response.id = flag;
       response.message = "Eres un crack!!!";
       res.status(200).send(response)
     }else{
