@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 
-console.log(flag);
+//console.log(flag);
  const addNewStudent = (req, res)=>{//funcion de validacion de credenciales
     let {id,password} = req.body;
     let response ={
