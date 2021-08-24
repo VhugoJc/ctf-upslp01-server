@@ -8,7 +8,8 @@ const api = express.Router();
 //Config:
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
-// Configure Header HTTP para que no de error de cors
+
+// Configure Header HTTP para que no dé error de cors
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header(
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
 
 
 
-  
+
  const addNewStudent = (req, res)=>{//funcion de validacion de credenciales
     let {id,password} = req.body;
     let response ={
