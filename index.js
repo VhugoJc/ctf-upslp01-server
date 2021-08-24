@@ -1,6 +1,8 @@
-const polimemes = require('./polimemes');
-const port = process.env.PORT || 4000;
+const app = require('./app');
+const port= process.env.PORT || 4000;
 
-polimemes.listen(port, ()=>{
-    console.log("App is running on port " + port);
-})
+app.listen(port, ()=>{
+    console.log("################");
+    console.log("####API REST####");
+    console.log("################");
+    });
