@@ -37,8 +37,7 @@ console.log(flag);
 
     if(`${password}`===id){
       response.id = flag;
-      response.message = "Eres un crack!!!";
-      res.status(200).send(response)
+      res.status(200).send({id:flag, message:"Eres un crack!!!"})
     }else{
       res.status(200).send(response)
     }
