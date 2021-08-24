@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const bodyparser = require('body-parser');
 const app = express();
 const api = express.Router();
@@ -16,6 +17,8 @@ app.use((req, res, next) => {
     res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
     next();
   });
+
+
 
  const addNewStudent = (req, res)=>{//función de validación
     let {id,password} = req.body;
@@ -39,6 +42,14 @@ app.use((req, res, next) => {
     }
 }
 
-  const polimemes = api.post('/add-new-student',addNewStudent);
+const downloadFile = (req, res) =>{
+  res.download(path.join(__dirname, '/polimemes.js'));
+}
+
+const polimemes = api.post('/add-new-student',addNewStudent);
+const getSource = api.get('/source',downloadFile);
+
+//routes
   app.use('/api',polimemes);
+  app.use('/api',getSource);
   module.exports = app;
