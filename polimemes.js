@@ -39,16 +39,16 @@ app.use((req, res, next) => {
     if(`${password}`===id){
       response.id = process.env.POLIMEMESFLAG;
       response.message = "Eres un crack!!!";
-      res.send(response)
+      res.status(200).send(response)
     }else{
-      res.send(response)
+      res.status(200).send(response)
     }
 }
 
 
 //mandar archivo /source
 const downloadFile = (req, res) =>{
-  res.download(path.join(__dirname, '/polimemes.js'));
+  res.status(200).download(path.join(__dirname, '/polimemes.js'));
 }
 
 
