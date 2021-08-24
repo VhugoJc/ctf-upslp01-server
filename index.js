@@ -24,22 +24,18 @@ app.use((req, res, next) => {
 //console.log(flag);
  const addNewStudent = (req, res)=>{//funcion de validacion de credenciales
     let {id,password} = req.body;
-    let response ={
-      id: id
-    }
 
     for(var i=0; i<id.length; i++){
       password = password.replace( `${id[i]}`,'Ja'); 
     }
     //console.log(password);
-    response.message = `tu contraseña se ha guardado como ${password}`;
+
     password = parseInt(password);
 
     if(`${password}`===id){
-      response.id = flag;
-      res.status(200).send({id:flag, message:"Eres un crack!!!"})
+      res.status(200).send({id:flag, message:`Eres un crack!!! ${flag}`})
     }else{
-      res.status(200).send(response)
+      res.status(200).send({id:id, message:`Bienvenido. tu contraseña es ${password}`})
     }
 }
 
